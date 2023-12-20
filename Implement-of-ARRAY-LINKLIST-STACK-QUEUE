@@ -37,6 +37,8 @@ cout<<endl<<endl;
                 cin.ignore();
                 cout<<endl<<"Invalid Input !  Enter Again.......  : ";
             }
+
+
         }
 
 
@@ -481,21 +483,26 @@ public:
 int main()
 {
     system("cls");
+
+
     int choice;
     int innerChoice;
     int value;
     function f1;
     QueuewithArray Q1;
     StackwithArray S1(10);
+
     linkedQueue LQ1;
     StackwithArray SA1;
 firstloop :
-    cout << endl << " (())------------------------Stack and Queue------------------------(())" << endl;
+    cout << endl << " (()).....................................Stack and Queue............................................(())" << endl;
+
     choice = f1.stackandqueue();
+
     switch (choice) {
     case 1:
         system("cls");
-        cout << endl << " ------------------------Queue with Array ------------------------" << endl;
+        cout << endl << " ............................... Queue with Array .........................................." << endl;
         while (true) {
             innerChoice = f1.queueandstack(choice);
             switch (innerChoice) {
@@ -542,7 +549,7 @@ firstloop :
         break;
     case 2:
         system("cls");
-        cout << endl << " ------------------------Stack with Array------------------------" << endl;
+        cout << endl << " ...............................Stack with Array.........................................." << endl;
         while (true) {
             innerChoice = f1.queueandstack(choice);
             switch (innerChoice) {
@@ -573,11 +580,11 @@ firstloop :
                 system("pause");
                 break;
             case 6:
-                ------------------------
+                //////////////////////////////////
                 system("pause");
                 break;
             case 7:
-                ------------------------
+                ///////////////////////////////
                 system("pause");
                 break;
 
@@ -589,7 +596,7 @@ firstloop :
         break;
     case 3:
         system("cls");
-        cout << endl << " ------------------------ Queue with LinkList------------------------" << endl;
+        cout << endl << " ............................... Queue with LinkList.........................................." << endl;
         while (true) {
             innerChoice = f1.queueandstack(choice);
             switch (innerChoice) {
@@ -635,7 +642,7 @@ firstloop :
         break;
     case 4:
         system("cls");
-        cout << endl << " ------------------------Stack with LinkList------------------------" << endl;
+        cout << endl << " ...............................Stack with LinkList.........................................." << endl;
         while (true) {
             innerChoice = f1.queueandstack(choice);
             switch (innerChoice) {
@@ -666,13 +673,14 @@ firstloop :
                 system("pause");
                 break;
             case 6:
-                ------------------------
+                ////////////////////////////////
                 system("pause");
                 break;
             case 7:
-                ------------------------
+                ///////////////////////////////
                 system("pause");
                 break;
+
                 break;
             case 8 :
                 goto firstloop;
@@ -681,5 +689,5 @@ firstloop :
         }
         break;
     }
-  return 0;
+    return 0;
 }
