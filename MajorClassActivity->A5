@@ -13,6 +13,65 @@ class Node{
 		 right=NULL;
 	}
 };
+class QueueNode {
+public:
+    Node* data;
+    QueueNode* next;
+
+    QueueNode(Node* node) {
+        data = node;
+        next = NULL;
+    }
+};
+
+class Queue {
+public:
+    QueueNode* front;
+    QueueNode* rear;
+
+    Queue() {
+        front = rear = NULL;
+    }
+
+    bool isEmpty() {
+        return front == NULL;
+    }
+
+    void enQueue(Node* node) {
+        QueueNode* new_Node = new QueueNode(node);
+
+        if (rear == NULL) {
+            front = rear = new_Node;
+            return;
+        }
+
+        rear->next = new_Node;
+        rear = new_Node;
+    }
+
+    void deQueue() {
+        if (isEmpty()) {
+            return;
+        }
+
+        QueueNode* temp = front;
+        front = front->next;
+
+        if (front == NULL) {
+            rear = NULL;
+        }
+
+        delete temp;
+    }
+
+    Node* getFront() {
+        if (isEmpty()) {
+            return NULL;
+        }
+
+        return front->data;
+    }
+};
 
 class binary_tree{
 	public:
@@ -49,9 +108,40 @@ class binary_tree{
 			postOrder(root->right);
 			cout<<root->key<<endl;								
 		}
-	}		
+	}
+	    void levelOrder(Node* root) {
+        if (root == NULL)
+            return;
 
+        Queue q;
+        q.enQueue(root);
+
+      while (!q.isEmpty()) {
+        Node* current = q.getFront();
+        cout << current->key << " ";
+        q.deQueue();
+        cout << "(Dequeued: " << current->key << ") "<<endl;
+
+        if (current->left != NULL) {
+            q.enQueue(current->left);
+        }
+        if (current->right != NULL) {
+            q.enQueue(current->right);
+        }
+         cout << "\n Elements in queue: ";
+        Node* remaining = q.getFront();
+        while (remaining != NULL) {
+            cout << remaining->key << " ";
+            remaining = remaining->right;
+        }
+        cout << endl;
+    }
+
+    }
 };
+		
+
+
 
 int main()
 {
@@ -67,6 +157,8 @@ int main()
 	bt.preOrder(bt.root);
 	cout<<"Postorder"<<endl;
 	bt.postOrder(bt.root);
+	cout << "Levelorder" << endl;
+    bt.levelOrder(bt.root);
 	return 0;
 	
 	
